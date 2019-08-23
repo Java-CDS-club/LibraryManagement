@@ -18,11 +18,12 @@ public class AdminDao {
 
 	public static boolean validate(String user, String password) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Admin a = session.load(Admin.class, new LoginID(user, password));
-		if ((a.getId().getPassword()).equals(password)) {
+		Admin a = session.get(Admin.class, new LoginID(user, password));
+		if (a != null) {
 			return true;
+		} else {
+			return false;
 		}
-		return false;
 	}
 
 	public static void logout() {
