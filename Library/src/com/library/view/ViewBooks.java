@@ -49,6 +49,7 @@ public class ViewBooks extends JFrame {
 
 		String data[][] = null;
 		String column[] = { "Call No.", "Name", "Author", "Publisher", "Quantity", "Issued" };
+//		String[] columnNames = sessionFactory.getClassMetadata(Book.class).getPropertyNames();
 		try {
 			List<Book> list = BookDao.show();
 			data = new String[list.size()][6];
